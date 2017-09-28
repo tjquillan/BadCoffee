@@ -6,6 +6,7 @@ import java.io.IOException;
 
 public class FileHandler 
 {
+	FileWriter fw;
 	BufferedWriter bw;
 	
 	public FileHandler()
@@ -15,7 +16,8 @@ public class FileHandler
 	
 	public void make(String name) throws IOException
 	{
-		bw = new BufferedWriter(new FileWriter(name));
+		fw = new FileWriter(name);
+		bw = new BufferedWriter(fw);
 	}
 	
 	public void write(String text) throws IOException
