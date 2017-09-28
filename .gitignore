@@ -1,0 +1,12 @@
+#Eclipse Project Files
+.classpath
+.project
+/.settings/
+
+#IntelliJ Project Files
+/.idea/
+*.iml
+
+#Compile location
+/out/
+/bin/
