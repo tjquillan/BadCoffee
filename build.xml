@@ -30,29 +30,33 @@
    	   	 	 includes = "**/ForkBomb.class">
    	   
    	   		<manifest>
-   	    		<attribute name = "Main-Class" value = "com.iboy.badcoffee.ForkBomb"/>
+   	   			<attribute name = "Built-By" value = "${user.name}"/>
+   	   			<attribute name = "BadCoffee-Version" value = "${version}-b${build.number}"/>
+   	    		<attribute name = "Main-Class" value = "com.iboy.badcoffee.forkbomb.ForkBomb"/>
    			</manifest>
 		</jar>
 
    		<!-- Compiles DiskWriteMulti Jar -->
    		<jar destfile = "${jar.dir}/DiskWriteMulti.jar"
    	   	 	 basedir  = "${output.dir}"
-   	   	 	 includes = "**/DiskWriteMulti.class">
+   	   	 	 includes = "**/FileHandler.class, **/DiskWriteMulti.class">
    	   
    	   		<manifest>
    	   			<attribute name = "Built-By" value = "${user.name}"/>
    	   			<attribute name = "BadCoffee-Version" value = "${version}-b${build.number}"/>
-   	    		<attribute name = "Main-Class" value = "com.iboy.badcoffee.DiskWriteMulti"/>
+   	    		<attribute name = "Main-Class" value = "com.iboy.badcoffee.diskwrite.multi.DiskWriteMulti"/>
    			</manifest>
 		</jar>
 
 		<!-- Compiles DiskWriteSingle Jar -->
 		<jar destfile = "${jar.dir}/DiskWriteSingle.jar"
    	   	 	 basedir  = "${output.dir}"
-   	   	 	 includes = "**/DiskWriteSingle.class">
+   	   	 	 includes = "**/FileHandler.class, **/DiskWriteSingle.class">
    	   
    	   		<manifest>
-   	    		<attribute name = "Main-Class" value = "com.iboy.badcoffee.DiskWriteSingle"/>
+   	   			<attribute name = "Built-By" value = "${user.name}"/>
+   	   			<attribute name = "BadCoffee-Version" value = "${version}-b${build.number}"/>
+   	    		<attribute name = "Main-Class" value = "com.iboy.badcoffee.diskwrite.single.DiskWriteSingle"/>
    			</manifest>
 		</jar>
 
@@ -62,7 +66,9 @@
    	   	 	 includes = "**/PopUp.class">
    	   
    	   		<manifest>
-   	    		<attribute name = "Main-Class" value = "com.iboy.badcoffee.PopUp"/>
+   	   			<attribute name = "Built-By" value = "${user.name}"/>
+   	   			<attribute name = "BadCoffee-Version" value = "${version}-b${build.number}"/>
+   	    		<attribute name = "Main-Class" value = "com.iboy.badcoffee.popup.PopUp"/>
    			</manifest>
 		</jar>		
 	</target>

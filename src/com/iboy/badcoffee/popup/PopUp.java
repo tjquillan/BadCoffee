@@ -1,4 +1,4 @@
-package com.iboy.badcoffee;
+package com.iboy.badcoffee.popup;
 
 import java.awt.Dimension;
 import java.awt.Toolkit;
@@ -24,14 +24,5 @@ public class PopUp
 		frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
 	    frame.setUndecorated(true);
 		frame.setVisible(true);
-	}
-	
-	public static void main(String[] args)
-	{
-		PopUp popUp = new PopUp();
-		while(true)
-		{
-			popUp.makeFrame();
-		}
 	}
 }

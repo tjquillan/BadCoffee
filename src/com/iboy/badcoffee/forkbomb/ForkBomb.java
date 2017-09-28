@@ -1,4 +1,4 @@
-package com.iboy.badcoffee;
+package com.iboy.badcoffee.forkbomb;
 
 import java.io.IOException;
 
