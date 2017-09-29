@@ -9,6 +9,7 @@
 
 #Sublime Text Project Files
 *.sublime-project
+
 *.sublime-workspace
 
 #Compile location
