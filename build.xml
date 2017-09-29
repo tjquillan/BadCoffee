@@ -12,11 +12,11 @@
    </target>
 
    <target name = "clean" depends = "init">
-      <deltree dir = "${output.dir}" />
+      <delete dir = "${output.dir}" />
    </target>
 
    <target name = "prepare" depends = "clean">
-   	<mkdir sdir = "${output.dir}" />
+   	<mkdir dir = "${output.dir}" />
    	<mkdir dir = "${jar.dir}" />
    	<mkdir dir = "${release.dir}" />
    </target>
