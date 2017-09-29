@@ -7,11 +7,6 @@
 /.idea/
 *.iml
 
-#Sublime Text Project Files
-*.sublime-project
-
-*.sublime-workspace
-
 #Compile location
 /out/
 /bin/
