@@ -1,4 +1,7 @@
 # BadCoffee
+
+[![Build Status](https://travis-ci.org/iboyperson/BadCoffee.svg?branch=master)](https://travis-ci.org/iboyperson/BadCoffee)
+
 A Repo for Malicious Java Programs
 
 ### WE ARE NOT RESPONSIBLE FOR ANY DAMAGE CAUSED BY THESE PROGRAMS
