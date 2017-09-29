@@ -10,3 +10,10 @@
 #Compile location
 /out/
 /bin/
+
+#File Types
+*.class
+*.jar
+
+#Crash Logs
+hs_err_pid*
