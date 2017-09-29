@@ -28,7 +28,7 @@
    		<!-- Compiles ForkBomb Jar -->
 		<jar destfile = "${jar.dir}/ForkBomb.jar"
    	     basedir  = "${output.dir}"
-   	     includes = "**/ForkBomb.class">
+   	     includes = "**/forkbomb/">
    	   
    	   <manifest>
    	   	<attribute name = "Built-By" value = "${user.name}"/>
@@ -37,22 +37,11 @@
    		</manifest>
 		</jar>
 
-   		<!-- Compiles DiskWriteMulti Jar -->
-   		<jar destfile = "${jar.dir}/DiskWriteMulti.jar"
-   	   	  basedir  = "${output.dir}"
-   	   	  includes = "**/FileHandler.class, **/DiskWriteMulti.class">
-   	   
-   	   <manifest>
-   	   	<attribute name = "Built-By" value = "${user.name}"/>
-   	   	<attribute name = "BadCoffee-Version" value = "${version}-b${build.number}"/>
-   	    	<attribute name = "Main-Class" value = "com.iboy.badcoffee.diskwrite.multi.DiskWriteMulti"/>
-   		</manifest>
-		</jar>
-
 		<!-- Compiles DiskWriteSingle Jar -->
 		<jar destfile = "${jar.dir}/DiskWriteSingle.jar"
    	     basedir  = "${output.dir}"
-   	     includes = "**/FileHandler.class, **/DiskWriteSingle.class">
+   	     includes = "**/diskwrite/"
+   	     excludes = "**/diskwrite/multi/">
    	   
    	   <manifest>
    	   	<attribute name = "Built-By" value = "${user.name}"/>
@@ -61,17 +50,42 @@
    		</manifest>
 		</jar>
 
-		<!-- Compiles PopUp Jar -->
-		<jar destfile = "${jar.dir}/PopUp.jar"
+   		<!-- Compiles DiskWriteMulti Jar -->
+   	<jar destfile = "${jar.dir}/DiskWriteMulti.jar"
    	     basedir  = "${output.dir}"
-   		  includes = "**/PopUp.class, **/PopUpMain.class">
+   	     includes = "**/diskwrite/"
+   	     excludes = "**/diskwrite/single/">
+   	   
+   	   <manifest>
+   	   	<attribute name = "Built-By" value = "${user.name}"/>
+   	   	<attribute name = "BadCoffee-Version" value = "${version}-b${build.number}"/>
+   	    	<attribute name = "Main-Class" value = "com.iboy.badcoffee.diskwrite.multi.DiskWriteMulti"/>
+   		</manifest>
+		</jar>
+
+		<!-- Compiles ScreenFill Jar -->
+		<jar destfile = "${jar.dir}/ScreenFill.jar"
+   	     basedir  = "${output.dir}"
+   		  includes = "**/screenfill/">
    	   
          <manifest>
    	   	<attribute name = "Built-By" value = "${user.name}"/>
    	   	<attribute name = "BadCoffee-Version" value = "${version}-b${build.number}"/>
-   	    	<attribute name = "Main-Class" value = "com.iboy.badcoffee.popup.PopUp"/>
+   	    	<attribute name = "Main-Class" value = "com.iboy.badcoffee.screenfill.ScreenFillMain"/>
    		</manifest>
-		</jar>		
+		</jar>
+
+		<!-- Compiles PopUp Jar -->
+		<jar destfile = "${jar.dir}/PopUp.jar"
+   	     basedir  = "${output.dir}"
+   		  includes = "**/popup/">
+   	   
+         <manifest>
+   	   	<attribute name = "Built-By" value = "${user.name}"/>
+   	   	<attribute name = "BadCoffee-Version" value = "${version}-b${build.number}"/>
+   	    	<attribute name = "Main-Class" value = "com.iboy.badcoffee.popup.PopUpMain"/>
+   		</manifest>
+		</jar>	
 	</target>
 
    <target name = "make-release" depends = "deploy, init">
