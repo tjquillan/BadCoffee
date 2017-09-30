@@ -1,4 +1,4 @@
-<project name = "BadCoffee Build" default = "make-release" basedir = ".">
+<project name = "BadCoffee Build" default = "deploy" basedir = ".">
    <target name = "init">
    	<property file = "build.properties" />
 
@@ -90,10 +90,8 @@
    	   	<attribute name = "BadCoffee-Version" value = "${version}"/>
    	    	<attribute name = "Main-Class" value = "com.iboy.badcoffee.popup.PopUpMain"/>
    		</manifest>
-		</jar>	
-	</target>
+		</jar>
 
-   <target name = "make-release" depends = "deploy, init">
       <zip destfile = "${release.dir}/BadCoffee ${version}"
            basedir  = "${jar.dir}" />
 	</target>
