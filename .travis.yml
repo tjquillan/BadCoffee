@@ -3,8 +3,6 @@ language: java
 jdk:
 - openjdk8
 
-script: ant deploy
-
 deploy:
   provider: releases
   api_key:
