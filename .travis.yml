@@ -9,7 +9,7 @@ deploy:
   provider: releases
   api_key:
     secure: WMFW2eOIXNlxhZBo+C7GCnS1Zysf3rNV0a/uLbWgKABum4TftMPL0S2MGD2H+Nhak1H56RvH+sDyitT9amgfINqdAQawMrkanLm8dr7xnq9qfxOm9wd56ao9FhChlNMV9fcSGbHxmUvMdxbGpHrGn1lgaJXkDwyGJPTx2Ec6TQk9qV0AMZgUR/SEt9N007LcndroVSneP204yoIBnlirCfv8dQCO+FX7pUEvaGD/xfLs7uoAa36pE5zcLSejiSgFPuCWQoDiikxUq8JiPh48K5H/TlCrgGlVU/83LaJL5usmSqyW40Ek6XrSXR9dFemHVVdMGUNzbjqk5qCOEHzOso56pjsisB83nxRoYE084geeP5y2riVAejR+ia/xpWZorNGlkxnLkaKui53ULlzGn7WXADhgdZ4SXlrXeRZQADN3225PcWQSLI2negF6HHIoAW88REXD776G8vHIdEZPuPrJpCfJH4mQtf4TDpzCZU/OLIQdoNxMVniTw6spb2kthKkWar3CrtBeD5hUaCszwx4kVIbqdrxai4TbTp7vDrPIho74knfm0niXCEqX1bmqDWl38PLxaosPITYCDDdEielKAanZmDBysS3vvvyEpWniplMBaAdpl8rme8nMtLYQGnPyY4UUAUEPhXGPZE7qUWKmi/1FEbY6r3XFe0DNULY=
-  file: "$TRAVIS_BUILD_DIR/bin/release/BadCoffee $TRAVIS_TAG.zip"
+  file: "$TRAVIS_BUILD_DIR/build/zips/BadCoffee-$TRAVIS_TAG.zip"
   skip_cleanup: true
   on:
     tags: true
