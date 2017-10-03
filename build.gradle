@@ -1,0 +1,130 @@
+buildscript {
+    repositories {
+        maven {
+            url 'https://plugins.gradle.org/m2/'
+        }
+    }
+    dependencies {
+        classpath 'gradle.plugin.com.zoltu.gradle.plugin:git-versioning:3.0.3'
+    }
+}
+
+plugins {
+    id 'java'
+    id 'com.zoltu.git-versioning' version '3.0.3'
+}
+
+ZoltuGitVersioning {
+    customDescribeProcessor { describeResults ->
+        def matcher = (describeResults =~ /v(?<major>[0-9]+?)\.(?<minor>[0-9]+?)\.(?<patch>[0-9]+?)\-(?<commitCount>[0-9]+?)\-g(?<sha>[a-zA-Z0-9]+)/)
+        matcher.matches()
+        [
+            major: matcher.group('major'),
+            minor: matcher.group('minor'),
+            patch: matcher.group('patch'),
+            commitCount: matcher.group('commitCount'),
+            sha: matcher.group('sha')
+
+        ]
+    }
+
+    customVersionToString { versionInfo ->
+        "v${versionInfo.major}.${versionInfo.minor}.${versionInfo.patch}"
+    }
+}
+
+sourceSets {
+    main{
+    	java{
+    		srcDirs = ['src']
+    	}
+    }
+}
+
+//Compile Jars
+//Forkbomb jar
+task forkBomb (type: Jar) {
+    baseName 'ForkBomb'
+    from(sourceSets.main.output) {
+        include "com/iboy/badcoffee/forkbomb/"
+    }
+
+    manifest {
+        attributes(
+            'Implementation-Title': 'BadCoffee-Forkbomb',
+            'Main-Class': 'com.iboy.badcoffee.forkbomb.ForkBomb')
+    }
+}
+
+//DiskWriteSingle Jar
+task diskWriteSingle (type: Jar) {
+    baseName 'DiskWriteSingle'
+    from(sourceSets.main.output) {
+        include 'com/iboy/badcoffee/diskwrite/'
+        exclude 'com/iboy/badcoffee/diskwrite/multi'
+    }
+
+    manifest {
+        attributes(
+            'Implementation-Title': 'BadCoffee-DiskWriteSingle',
+            'Main-Class': 'com.iboy.badcoffee.diskwrite.single.DiskWriteSingle')
+    }
+}
+
+//DiskWriteMulti Jar
+task diskWriteMulti (type: Jar) {
+    baseName 'DiskWriteMulti'
+    from(sourceSets.main.output) {
+        include 'com/iboy/badcoffee/diskwrite/'
+        exclude 'com/iboy/badcoffee/diskwrite/single'
+    }
+
+    manifest {
+        attributes(
+            'Implementation-Title': 'BadCoffee-DiskWriteMulti',
+            'Main-Class': 'com.iboy.badcoffee.diskwrite.multi.DiskWriteMulti')
+    }
+}
+
+//ScreenFill Jar
+task screenFill (type: Jar) {
+    baseName 'ScreenFill'
+    from(sourceSets.main.output) {
+        include 'com/iboy/badcoffee/screenfill/'
+    }
+
+    manifest {
+        attributes(
+            'Implementation-Title': 'BadCoffee-ScreenFill',
+            'Main-Class': 'com.iboy.badcoffee.screenfill.ScreenFillMain')
+    }
+}
+
+task popUp (type: Jar) {
+    baseName 'PopUp'
+    from(sourceSets.main.output) {
+        include 'com/iboy/badcoffee/popup/'
+    }
+
+    manifest {
+        attributes(
+            'Implementation-Title': 'BadCoffee-PopUp',
+            'Main-Class': 'com.iboy.badcoffee.popup.PopUpMain')
+    }
+}
+
+task zipJars(type: Zip) {
+   from 'build/libs/'
+   exclude 'BadCoffee-*'
+   def versionInfo = ZoltuGitVersioning.versionInfo
+   archiveName 'BadCoffee-v' + "${versionInfo.major}.${versionInfo.minor}.${versionInfo.patch}" +'.zip'
+   destinationDir(file('build/zips'))
+}
+
+build.finalizedBy(
+    forkBomb,
+    diskWriteSingle,
+    diskWriteMulti,
+    screenFill,
+    popUp,
+    zipJars)
