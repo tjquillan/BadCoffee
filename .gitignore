@@ -1,19 +1,21 @@
 #Eclipse Project Files
 .classpath
 .project
-/.settings/
+.settings/
 
 #IntelliJ Project Files
-/.idea/
+.idea/
 *.iml
+*.iws
+*.ipr
 
 #Gradle Files
-/.gradle/
-/build/
+.gradle/
+build/
 
 #Compile location
-/out/
-/bin/
+out/
+bin/
 
 #File Types
 *.class

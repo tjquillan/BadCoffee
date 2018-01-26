@@ -23,14 +23,6 @@ ZoltuGitVersioning {
     }
 }
 
-sourceSets {
-    main{
-    	java{
-    		srcDirs = ['src']
-    	}
-    }
-}
-
 //Compile Jars
 //Forkbomb jar
 task forkBomb (type: Jar) {
@@ -90,6 +82,7 @@ task screenFill (type: Jar) {
     }
 }
 
+//PopUp Jar
 task popUp (type: Jar) {
     baseName 'PopUp'
     from(sourceSets.main.output) {
@@ -103,6 +96,7 @@ task popUp (type: Jar) {
     }
 }
 
+//Zip all jars
 task zipJars(type: Zip) {
    from 'build/libs/'
    exclude 'BadCoffee-*'
