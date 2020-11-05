@@ -113,6 +113,6 @@ build.finalizedBy(
     popUp,
     zipJars)
 
-task wrapper(type: Wrapper) {
-    gradleVersion = '4.5'
+wrapper {
+    gradleVersion = '6.7'
 }
